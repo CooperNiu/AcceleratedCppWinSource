@@ -15,6 +15,9 @@ int main()
 	string name;
 	cin >> name;
 
+	// write a blank line to separate the output from the input
+	cout << endl;
+
 	// build the message that we intend to write
 	const string greeting = "Hello, " + name + "!";
 
@@ -25,13 +28,10 @@ int main()
 	const int rows = pad * 2 + 3;
 	const string::size_type cols = greeting.size() + pad * 2 + 2;
 
-	// write a blank line to separate the output from the input
-	cout << endl;
-
 	// write `rows' rows of output
 	// invariant: we have written `r' rows so far
 	for (int r = 0; r != rows; ++r) {
-
+		// use size_type in the string class to store the size of string
 		string::size_type c = 0;
 
 		// invariant: we have written `c' characters so far in the current row
@@ -45,7 +45,7 @@ int main()
 
 				// are we on the border?
 				if (r == 0 || r == rows - 1 ||
-				    c == 0 || c == cols - 1)
+					c == 0 || c == cols - 1)
 					cout << "*";
 				else
 					cout << " ";
